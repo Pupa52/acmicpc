@@ -15,9 +15,7 @@ void solution()
 	for (auto& iter : cookies)
 		cin >> iter;
 
-	sort(cookies.begin(), cookies.end(), less<int>());
-
-	ll start = 1, middle, end = cookies.back() * 2LL;
+	ll start = 1, middle, end = 0x7fff'ffff;
 	while (start < end)
 	{
 		middle = (start + end) / 2;
