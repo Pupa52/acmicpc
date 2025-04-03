@@ -18,10 +18,7 @@ void solution()
 		int i = (n - 1) / h + 1;
 		int j = (n - 1) % h + 1;
 
-		if (i < 10)
-			cout << j << '0' << i << endl;
-		else
-			cout << j << i << endl;
+		cout << j * 100 + i << endl;
 	}
 }
 
