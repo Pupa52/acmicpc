@@ -31,17 +31,14 @@ void solution()
 	while (false == pq.empty())
 	{
 		pii edge = pq.top(); pq.pop();
-		int index = edge.second;
-		int weight = edge.first;
-
-		if (weight != dist[index])
+		if (edge.first != dist[edge.second])
 			continue;
 
 		for (auto& p : edges[edge.second])
 		{
-			if (weight + p.first < dist[p.second])
+			if (edge.first + p.first < dist[p.second])
 			{
-				dist[p.second] = weight + p.first;
+				dist[p.second] = edge.first + p.first;
 				pq.push({ dist[p.second], p.second});
 			}
 		}
@@ -50,9 +47,9 @@ void solution()
 	for (int i = 1; i <= v; i++)
 	{
 		if (dist[i] == INF)
-			cout << "INF" << endl;
+			cout << "INF" << '\n';
 		else
-			cout << dist[i] << endl;
+			cout << dist[i] << '\n';
 	}
 }
 
