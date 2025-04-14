@@ -7,7 +7,7 @@ constexpr int INF = 0x5fff'ffff;
 using namespace std;
 using pii = pair<int, int>;
 
-vector<pii> edges[200001];
+vector<pii> edges[20001];
 
 void solution()
 {
