@@ -2,14 +2,21 @@
 #include <queue>
 
 using namespace std;
-using pii = pair<int, int>;
+
+struct _cmp {
+	bool operator()(int lhs, int rhs) {
+		if (abs(lhs) != abs(rhs))
+			return abs(lhs) > abs(rhs);
+		return lhs > rhs;
+	}
+};
 
 void solution()
 {
 	int n;
 	cin >> n;
 	
-	priority_queue<pii, vector<pii>, greater<pii>> pq;
+	priority_queue<int, vector<int>, _cmp> pq;
 
 	while (n-- > 0)
 	{
@@ -19,18 +26,16 @@ void solution()
 		if (0 == x)
 		{
 			if (pq.empty())
-				cout << 0 << endl;
+				cout << 0 << '\n';
 			else
 			{
-				pii value = pq.top(); pq.pop();
-				cout << value.second << endl;
+				cout << pq.top() << '\n';
+				pq.pop();
 			}
 		}
 
 		else
-		{
-			pq.push(make_pair(abs(x), x));
-		}
+			pq.push(x);
 	}
 }
 
