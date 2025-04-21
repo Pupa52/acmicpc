@@ -19,20 +19,19 @@ void solution()
 		for (auto& p : v)
 			cin >> p.first;
 
-		int outCnt = 1;
-		int front = 0;
+		int base = 0;
 		int offset = 0;
 		for (int i = 9; i > 0; i--)
 		{
-			offset = front;
+			offset = base;
 			for (int j = 0; j < n; j++)
 			{
 				int index = (j + offset) % n;
-				if (v[index].first == i)
-				{
-					v[index].second = outCnt++;
-					front = index;
-				}
+				if (v[index].first != i)
+					continue;
+
+				v[index].second = (v[base].second + 1);
+				base = index;
 			}
 		}
 
