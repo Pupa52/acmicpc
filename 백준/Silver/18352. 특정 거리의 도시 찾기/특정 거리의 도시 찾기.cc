@@ -6,7 +6,7 @@ using namespace std;
 
 const int maxDist = 300'001;
 
-vector<int> edges[1'000'001];
+vector<int> edges[300'001];
 
 void solution()
 {
