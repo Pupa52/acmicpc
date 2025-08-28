@@ -20,16 +20,18 @@ void solution()
 
 		edges[u].push_back(v);
 	}
+	
+	vector<int> result;
 
 	vector<int> dist(n + 1, maxDist);
 	dist[x] = 0;
 
-	priority_queue<int> pq;
+	queue<int> pq;
 	pq.push(x);
 
 	while (false == pq.empty())
 	{
-		int curr = pq.top(); pq.pop();
+		int curr = pq.front(); pq.pop();
 
 		for (auto iter : edges[curr])
 		{
@@ -41,7 +43,7 @@ void solution()
 		}
 	}
 
-	vector<int> result;
+
 	for (int i = 1; i <= n; i++)
 		if (dist[i] == k)
 			result.push_back(i);
