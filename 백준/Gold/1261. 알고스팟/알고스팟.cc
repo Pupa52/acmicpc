@@ -20,14 +20,14 @@ void solution()
 		cin >> str;
 
 	vector<int> dist(m * n, maxDist);
-	queue<pair<int, int>> q;
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
 	dist[0] = 0;
-	q.push({ dist[0], 0 });
+	pq.push({ dist[0], 0 });
 
-	while (false == q.empty())
+	while (false == pq.empty())
 	{
-		auto curr = q.front(); q.pop();
+		auto curr = pq.top(); pq.pop();
 		if (curr.first != dist[curr.second])
 			continue;
 
@@ -46,7 +46,7 @@ void solution()
 			if (dist[next] > weight)
 			{
 				dist[next] = weight;
-				q.push({ dist[next], next });
+				pq.push({ dist[next], next });
 			}
 		}
 	}
