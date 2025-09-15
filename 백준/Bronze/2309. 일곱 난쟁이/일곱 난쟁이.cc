@@ -6,40 +6,36 @@ using namespace std;
 
 void solution()
 {
-	int n = 9;
-
 	int sum = 0;
 
-	vector<int> heights(n, 0);
-	for (int i = 0; i < n; i++)
+	vector<int> arr(9);
+	for (int i = 0; i < 9; i++)
 	{
-		cin >> heights[i];
-		sum += heights[i];
+		cin >> arr[i];
+		sum += arr[i];
 	}
 
-	sort(heights.begin(), heights.end());
+	sort(arr.begin(), arr.end());
 
-	int result[2] = {};
-	for (int i = 0; i < n - 1; i++)
+	int answer[2] = {};
+	for (int i = 0; i < 8; i++)
 	{
-		int temp = sum - 100 - heights[i];
-		for (int j = i + 1; j < n; j++)
+		for (int j = i + 1; j < 9; j++)
 		{
-			if (temp == heights[j])
+			if (sum - arr[i] - arr[j] == 100)
 			{
-				result[0] = i;
-				result[1] = j;
-				break;
+				answer[0] = i;
+				answer[1] = j;
 			}
 		}
 	}
 
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < 9; i++)
 	{
-		if (i == result[0] || i == result[1])
+		if (i == answer[0] || i == answer[1])
 			continue;
 
-		cout << heights[i] << '\n';
+		cout << arr[i] << '\n';
 	}
 }
 
@@ -47,6 +43,7 @@ int main(void)
 {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
+	cout.tie(NULL);
 
 	solution();
 
