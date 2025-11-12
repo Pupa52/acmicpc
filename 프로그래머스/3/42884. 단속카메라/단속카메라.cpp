@@ -8,7 +8,7 @@ int solution(vector<vector<int>> routes) {
     int answer = 0;
     
     sort(routes.begin(), routes.end(), [](vector<int>& lhs, vector<int>& rhs){
-        return lhs[0] < rhs[0];
+        return lhs[1] < rhs[1];
     });
     
     int en = -30001;
@@ -18,11 +18,6 @@ int solution(vector<vector<int>> routes) {
         {
             answer++;
             en = route[1];
-        }
-        
-        else
-        {
-            en = min(en, route[1]);
         }
     }
     
