@@ -11,19 +11,17 @@ int solution(vector<vector<int>> routes) {
         return lhs[0] < rhs[0];
     });
     
-    int st = -30001, en = -30001;
+    int en = -30001;
     for(auto& route : routes)
     {
         if (en < route[0])
         {
             answer++;
-            st = route[0];
             en = route[1];
         }
         
         else
         {
-            st = route[0];
             en = min(en, route[1]);
         }
     }
